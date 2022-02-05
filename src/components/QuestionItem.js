@@ -20,7 +20,7 @@ function QuestionItem({ question, onDeleteQuestion, onUpdateQuestion }) {
   }
 
   const handleCorrectAnswerChange = (e) => {
-    
+    console.log(e.target.value)
     setSelectedOption(() => e.target.value)
 
     fetch(`http://localhost:4000/questions/${question.id}`, {
@@ -42,7 +42,7 @@ function QuestionItem({ question, onDeleteQuestion, onUpdateQuestion }) {
       <h5>Prompt: {prompt}</h5>
       <label>
         Correct Answer:
-        <select  onChange={handleCorrectAnswerChange} value={selectedOption}>{options}</select>
+        <select  onChange={handleCorrectAnswerChange} defaultValue={selectedOption}>{options}</select>
       </label>
       <button onClick={handleDeleteQuestion}>Delete Question</button>
     </li>
